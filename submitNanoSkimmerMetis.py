@@ -16,10 +16,11 @@ if __name__ == "__main__":
     samples_ = {
         # DBSSample(dataset="/DoubleEG/Run2016B-ver2_HIPM_UL2016_MiniAODv2_NanoAODv9-v3/NANOAOD")   : "data_Run2016Bv2_ee",
         # DBSSample(dataset="/ZZTo4L_TuneCP5_13TeV_powheg_pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM")                                                     : "ZZTo4L",
-        DBSSample(dataset="/HZJ_HToWWTo2L2Nu_ZTo2L_M-125_TuneCP5_13TeV-powheg-jhugen727-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM")          : "ZHWW_4l",
-        DBSSample(dataset="/HZJ_HToWW_M-125_TuneCP5_13TeV-powheg-jhugen727-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM")                       : "ZHWW",
-        DBSSample(dataset="/HZJ_HToWWTo2L2Nu_ZTo2L_M-125_TuneCP5_13TeV-powheg-jhugen727-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM")                    : "ZHWW_4l",
-        DBSSample(dataset="/HZJ_HToWW_M-125_TuneCP5_13TeV-powheg-jhugen727-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM")                                 : "ZHWW",
+        # DBSSample(dataset="/HZJ_HToWWTo2L2Nu_ZTo2L_M-125_TuneCP5_13TeV-powheg-jhugen727-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM")          : "ZHWW_4l",
+        # DBSSample(dataset="/HZJ_HToWW_M-125_TuneCP5_13TeV-powheg-jhugen727-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM")                       : "ZHWW",
+        # DBSSample(dataset="/HZJ_HToWWTo2L2Nu_ZTo2L_M-125_TuneCP5_13TeV-powheg-jhugen727-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM")                    : "ZHWW_4l",
+        # DBSSample(dataset="/HZJ_HToWW_M-125_TuneCP5_13TeV-powheg-jhugen727-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM")                                 : "ZHWW",
+        DBSSample(dataset="/WWZJetsTo4L2Nu_4F_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM")                             : "WWZ_4l",
         }
 
     samples_list = []
@@ -32,7 +33,7 @@ if __name__ == "__main__":
     samples_list += samples_.keys()
 
     # submission tag
-    tag = "v8"
+    tag = "v9"
 
     # Task summary for printing out msummary
     task_summary = {}
@@ -59,7 +60,8 @@ if __name__ == "__main__":
                     condor_submit_params = condor_submit_params_no_fetch,
                     cmssw_version = "CMSSW_10_5_0",
                     input_executable = "condor_executable_skimmer_metis.sh", # your condor executable here
-                    tarfile = "/nfs-7/userdata/phchang/NanoSkimmerPackages/NanoSkimmer_v3.1.package.tar.gz", # your tarfile with assorted goodies here
+                    # tarfile = "/nfs-7/userdata/phchang/NanoSkimmerPackages/NanoSkimmer_v3.1.package.tar.gz", # your tarfile with assorted goodies here
+                    tarfile = "NanoAOD_4LeptonSkimmer.tar.gz", # your tarfile with assorted goodies here
                     special_dir = "FourLepNanoSkim/{}".format(tag), # output files into /hadoop/cms/store/<user>/<special_dir>
             )
 
